@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Scoreboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2em;
+      color: #555;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .scoreboard {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 800px;
+      padding: 20px;
+      background-color: #fff;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .team {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 45%;
+    }
+
+    .team input {
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      outline: none;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .score {
+      font-size: 3em;
+      font-weight: bold;
+      color: #007bff;
+      margin: 10px 0;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .controls button {
+      font-size: 1.2em;
+      padding: 5px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .controls button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ansh Obecure Unbound Sports Championship</h1>
+  <h2>Kho-kho Tournament</h2>
+
+  <div class="scoreboard">
+    <div class="team">
+      <input type="text" id="team1Name" value="Team 1">
+      <div class="score" id="team1Score">0</div>
+      <div class="controls">
+        <button onclick="incrementScore('team1')">+</button>
+        <button onclick="decrementScore('team1')">-</button>
+      </div>
+    </div>
+    <div class="team">
+      <input type="text" id="team2Name" value="Team 2">
+      <div class="score" id="team2Score">0</div>
+      <div class="controls">
+        <button onclick="incrementScore('team2')">+</button>
+        <button onclick="decrementScore('team2')">-</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function incrementScore(team) {
+      const scoreElement = document.getElementById(`${team}Score`);
+      let currentScore = parseInt(scoreElement.textContent);
+      scoreElement.textContent = currentScore + 1;
+    }
+
+    function decrementScore(team) {
+      const scoreElement = document.getElementById(`${team}Score`);
+      let currentScore = parseInt(scoreElement.textContent);
+      if (currentScore > 0) {
+        scoreElement.textContent = currentScore - 1;
+      }
+    }
+  </script>
+</body>
+</html>
